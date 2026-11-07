@@ -17,31 +17,36 @@ int main()
     int a;
     int b;
 
-    cout << "Anna ensimmainen kokonaisluku: ";
-    cin >> a;
-
-    cout << "Anna toinen kokonaisluku: ";
-    cin >> b;
-
-    calcSum(a, b);
-    calcDiv(a, b);
-
-    int summa = retSum(a, b);
-    cout << "Palautettu summa on: " << summa << endl;
-
-    // Lasketaan osamaara ja kasitellaan mahdollinen virhe
-    try
+    do
     {
-        float osamaara = retDiv(a, b);
 
-        cout << "Palautettu osamaara on: "
+        cout << "Anna ensimmainen kokonaisluku: ";
+        cin >> a;
+
+        cout << "Anna toinen kokonaisluku: ";
+        cin >> b;
+
+        calcSum(a, b);
+        calcDiv(a, b);
+
+        int summa = retSum(a, b);
+        cout << "Palautettu summa on: " << summa << endl;
+
+        // Lasketaan osamaara ja kasitellaan mahdollinen virhe
+        try
+        {
+            float osamaara = retDiv(a, b);
+
+            cout << "Palautettu osamaara on: "
              << fixed << setprecision(2)
              << osamaara << endl;
-    }
-    catch (runtime_error &e)
-    {
-        cout << "Virhe: " << e.what() << endl;
-    }
+        }
+        catch (runtime_error &e)
+        {
+            cout << "Virhe: " << e.what() << endl;
+        }
+
+    } while (b == 0);
 
 
     return 0;
