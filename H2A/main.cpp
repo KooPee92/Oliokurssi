@@ -1,6 +1,8 @@
 #include "car.h"
 #include <iostream>
 #include "rectangle.h"
+#include "student.h"
+#include <memory>
 
 using namespace std;
 
@@ -33,6 +35,24 @@ int main()
 
     // Vapautetaan kekomuisti
     delete suorakulmio1;
+
+    // Luodaan Student-olio alyosoittimella
+    auto opiskelija1 = std::make_unique<Student>();
+
+    // Asetetaan opiskelijan tiedot
+    opiskelija1->setName("Keijo");
+    opiskelija1->setStudentNumber(12345);
+    opiskelija1->setAverage(4.2);
+
+    // Tulostetaan opiskelijan tiedot
+    cout << "\nOpiskelijan nimi: "
+         << opiskelija1->getName() << endl;
+
+    cout << "Opiskelijanumero: "
+         << opiskelija1->getStudentNumber() << endl;
+
+    cout << "Keskiarvo: "
+         << opiskelija1->getAverage() << endl;
 
     return 0;
 }
