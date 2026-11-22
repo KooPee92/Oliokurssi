@@ -1,17 +1,35 @@
 #include <iostream>
 #include "chef.h"
+#include "italianchef.h"
 
 using namespace std;
 
 int main()
 {
-    // Luodaan Chef-olio pinomuistiin
-    Chef kokki("Gordon Ramsay");
+    // Luodaan Chef-olio
+    {
+        Chef kokki("Gordon Ramsay");
 
-    // Kokki valmistaa salaattia ja keittoa
-    kokki.makeSalad();
-    kokki.makeSoup();
+        // Valmistetaan salaattia ja keittoa
+        kokki.makeSalad();
+        kokki.makeSoup();
+    }
+
+    // Luodaan ItalianChef-olio
+    {
+        ItalianChef italialainenKokki("Anthony Bourdain");
+
+        // Kutsutaan perittyja jasenfunktioita
+        italialainenKokki.makeSalad();
+        italialainenKokki.makeSoup();
+
+        // Valmistetaan pastaa
+        italialainenKokki.makePasta();
+
+        // Tulostetaan italialaisen kokin nimi
+        cout << "name of the Italian Chef is "
+             << italialainenKokki.getName() << endl;
+    }
 
     return 0;
 }
-
